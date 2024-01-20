@@ -16,12 +16,12 @@ function App() {
 
   const handleClick = async () => {
     try{
-      const {data} = await axios.get('http://localhost:3000/api/v1/contact',{
+      const {data} = await axios.get('https://chat-app-api-9cgh.onrender.com/api/v1/contact',{
         headers:{
           Authorization: token
         }
       })
-      
+      console.log(data)
       setContacts(data)
       setToContacts(true)
     } catch(err){

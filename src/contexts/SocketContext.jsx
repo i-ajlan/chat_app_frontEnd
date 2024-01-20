@@ -13,7 +13,7 @@ export const SocketProvider = ({children}) =>{
 useEffect(()=>{
     console.log("Socket Provider Use Effect");
     console.log("type of user id", typeof user.id)
-    const newSocket = io('http://localhost:3000', {
+    const newSocket = io('https://chat-app-api-9cgh.onrender.com', {
         query:{
             id: user.id
         }

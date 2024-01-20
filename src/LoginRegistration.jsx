@@ -14,7 +14,7 @@ export default function LoginRegistration() {
         e.preventDefault();
         const {name:username, id} = value;
         try{
-        const {data} = await axios.post(`http://localhost:3000/api/v1/${isRegistered?'login':'register'}`,{username, id: parseInt(id)})
+        const {data} = await axios.post(`https://chat-app-api-9cgh.onrender.com/api/v1/${isRegistered?'login':'register'}`,{username, id: parseInt(id)})
         
        
         if(data.token){

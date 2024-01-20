@@ -15,7 +15,7 @@ function Contacts({setToContacts}) {
     // const token = localStorage.getItem('token_chat_app')
 
 
-    
+    console.log("Contact component")
     const handleSubmit = async (e) => {
       e.preventDefault();
       const form = e.currentTarget;
@@ -29,7 +29,7 @@ function Contacts({setToContacts}) {
       const {name:name_contact, contactID: contact_id} = data;
       // let contact_id = parseInt(id)
       e.currentTarget.reset();
-      axios.post('http://localhost:3000/api/v1/contact',{name_contact, contact_id: parseInt(contact_id)}, {headers:{
+      axios.post('https://chat-app-api-9cgh.onrender.com/api/v1/contact',{name_contact, contact_id: parseInt(contact_id)}, {headers:{
         Authorization: token 
       }}).then((res) =>{
         console.log(res);
