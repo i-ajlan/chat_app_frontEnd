@@ -3,8 +3,9 @@ import { useContact } from './contexts/ContactContext';
 import { useConversation } from './contexts/ConversationContext';
 import { useUser } from './contexts/UserContext';
 import { Avatar } from '@mui/material';
+import './css/Chats.css';
 
-function Chats() {
+function Chats({handleClick}) {
     console.log("Chat component");
     const {setSelectedContact} = useContact();
     const {user} = useUser();
@@ -33,18 +34,11 @@ function Chats() {
         }
         return;
     })
-    // console.log()
-    // const filterMessages ={}
-    //  messages.map((message)=>{
-
-    //   filterMessages.push({})
-    // })
 
   return (
     <section 
-      className="chats" 
-      style={{display:'flex', flexDirection:'column', height:'100%', borderRadius:'10px', backgroundColor:'white'}}>
-        <section className="chats_head" style={{borderBottom:'1px black solid', padding:'5px', boxShadow:'0px, 0px, 5px, rgba(0, 0, 0, 0.5)'}}>
+      className="chats" >
+        <section className="chats__head" >
         <h2>chats</h2>
         <div className="user_image_name" style={{display:'flex', gap:'5px'}}>
 
@@ -55,7 +49,7 @@ function Chats() {
 
         <p>{user.id}</p>
         </section>
-        <section className="chats_body" style={{backgroundColor:'white', flexGrow:'1', borderBottomLeftRadius:'10px', borderBottomRightRadius:'10px'}}>
+        <section className="chats_body" style={{flexGrow:'1', position:'relative', borderBottomLeftRadius:'10px', borderBottomRightRadius:'10px'}}>
           <ul >
             {chats.map((chat,index)=>{
 
@@ -76,7 +70,7 @@ function Chats() {
               
 
             </li>)})}
-           
+           <button className='button' style={{position: 'absolute', bottom:'5px', right:'0'}} onClick={handleClick}>go to Contacts</button>
           </ul>
         </section>
 

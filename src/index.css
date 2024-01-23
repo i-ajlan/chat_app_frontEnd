@@ -1,13 +1,35 @@
+html{
+  --transition-standard: all 0.5s ease-in-out;
+  --first-color: #1f2833;
+  --second-color: #0b0c10;
+  --third-color: #45a29E;
+  --fourth-color: #66FCF1;
+  --fifth-color: #c5c6c7;
+}
 
-
-
-
-*{
+*, *::before, *::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color:white;
+  /* font-size:1.05em; */
+}
+
+.button{
+  border: 2px solid var(--third-color);
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 1em;
+  background-color: var(--second-color);
+  transition: var(--transition-standard);
+}
+
+.button:hover{
+  border-color: var(--fourth-color);
+  letter-spacing: 2px;
 }
 
 body{
-  background-color: blue;
+
+  background-color: var(--first-color);
 }

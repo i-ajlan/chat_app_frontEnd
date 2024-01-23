@@ -3,7 +3,7 @@ import { useContact } from './contexts/ContactContext';
 import { useUser } from './contexts/UserContext';
 import {Avatar} from '@mui/material';
 import axios from 'axios' 
-
+import './css/Contacts.css';
 
 
 function Contacts({setToContacts}) {
@@ -52,23 +52,23 @@ function Contacts({setToContacts}) {
       justifyContent:'center',
       padding:'15%',
       backgroundColor:'rgba(0, 0, 0, 0.5)', width:'100vw', height:'100vh', zIndex:'5'}}>
-        <section className="contacts_head" style={{borderBottom:'1px black solid', backgroundColor:'white', borderTopLeftRadius:'7px',
+        <section className="contacts_head" style={{border:'1px var(--third-color) solid', backgroundColor:'var(--second-color)', borderTopLeftRadius:'7px',
         borderTopRightRadius:'7px',
         display:'flex',
         gap:'5px',
         padding:'10px'
       }}>
-        <h2 style={{flex:1}}>Contacts List</h2>
-        <button style={{}} onClick={handleClick}>Create Contact</button>
-        <button onClick={()=>setToContacts(false)}>close</button>
+        <h2 style={{flex:1, color:'var(--third-color)'}}>Contacts List</h2>
+        <button className='button' onClick={handleClick}>Create Contact</button>
+        <button className='button' onClick={()=>setToContacts(false)}>close</button>
         </section>
-        <section className="contacts_body" style={{backgroundColor:'white', overflowY:"scroll", borderBottomLeftRadius:'7px', borderBottomRightRadius:'7px', position:'relative', maxHeight:'60vh'}}>
+        <section className="contacts__body" style={{backgroundColor:'var(--second-color)', overflowY:"scroll",
+        border:'1px var(--third-color) solid', 
+        borderBottomLeftRadius:'7px', borderBottomRightRadius:'7px', position:'relative', maxHeight:'60vh'}}>
 
           <ul >
             {contacts.map((contact)=>{
-                // if(contact.id == user.id){
-                //     return;
-                // }
+                
                 return (<li key={contact.contact_id} style={{display:'flex', gap:'3px',alignItems:'center', flexWrap:'nowrap', padding:'4px'}}
             onClick={()=>setSelectedContact({contact_id:contact.contact_id, name_contact:contact.name_contact})}
 
@@ -76,7 +76,7 @@ function Contacts({setToContacts}) {
             >
               <div>
 
-              <Avatar sx={{color:"white", textTransform:"capitalize", backgroundColor:"blue"}}alt={contact.name_contact} src='none'/>
+              <Avatar sx={{color:"var(--third-color)", border:'1px var(--third-color) solid', textTransform:"capitalize", backgroundColor:"var(--second-color)"}}alt={contact.name_contact} src='none'/>
               </div>
               <div className="name_id" style={{display:'flex', flexDirection:'column', flexWrap:'nowrap', borderBottom: '1px black solid', overflow:'hidden', flex: 1}}>
 

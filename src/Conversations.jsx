@@ -3,6 +3,7 @@ import { useContact } from './contexts/ContactContext';
 import { useConversation } from './contexts/ConversationContext';
 import { useUser } from './contexts/UserContext';
 import { Avatar } from '@mui/material';
+import './css/Conversations.css';
 
 function Conversations() {
   console.log("Conversation Component");
@@ -17,8 +18,8 @@ function Conversations() {
   }
 
   return (
-    <section className="conversations" style={{height:'100%', width:'65vw', border:'1px black solid', display:'flex', flexDirection:'column', background:'white', borderRadius:'10px'}}>
-      <section className="conversations_head" style={{borderBottom:'1px black solid', padding:'5px'}}>
+    <section className="conversations">
+      <section className="conversations__head">
         <h2>conversations</h2>
         <div className="user_image_name" style={{display:'flex', gap:'5px'}}>
 
@@ -26,8 +27,8 @@ function Conversations() {
         <p>{selectedContact.name_contact}</p>
         </div>
         </section>
-        <section className='conversations_body' style={{display:'flex', flexDirection:'column',
-        flex:'1', overflowY:'scroll'
+        <section className='conversations__body' style={{display:'flex', flexDirection:'column',
+        flex:'1', gap:'5px', overflowY:'scroll'
       }}>
 
         {
@@ -36,7 +37,7 @@ function Conversations() {
             if((message.sender != user.id || message.receiver != selectedContact.contact_id) && (message.sender != selectedContact.contact_id || message.receiver != user.id)){
               return;
             }
-   return(<input key={index} type="text" value={message.content} style={message.sender == user.id? {margin:'5px', alignSelf:'end'}:{margin:'5px', alignSelf:'start'}}/>)
+   return(<input key={index} type="text" value={message.content} className={message.sender == user.id? 'user_message': 'contact_message'} readOnly/>)
 
           }
 
@@ -46,8 +47,8 @@ function Conversations() {
           // <input type="text" value={"messageSent"} style={{alignSelf:'end'}}/>
         }
         </section>
-        <section style={{borderTop:'1px black solid', display:'flex'}}className='conversations_foot'>
-          <input type="text" placeholder='write a message...' style={{flex:'0', border:'none', outline:'none'}} value={value} onChange={(e)=>setValue(e.target.value)}/>
+        <section style={{ display:'flex', justifyContent:'center'}}className='conversations__foot'>
+          <textarea type="text" placeholder='write a message...' value={value} onChange={(e)=>setValue(e.target.value)}/>
           <button onClick={sendMessage}>Send</button>
 
         </section>

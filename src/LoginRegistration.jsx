@@ -1,6 +1,8 @@
 import  { useState } from 'react'
 import { useUser } from './contexts/UserContext';
 import axios from 'axios';
+import './css/LogReg.css'
+
 
 export default function LoginRegistration() {
   
@@ -37,17 +39,16 @@ export default function LoginRegistration() {
 
 
   return (
-    <div style={{display:'flex', justifyContent:'center',alignItems:'center', height:"100vh"}}>
+    <div  className='logReg' style={{display:'flex', justifyContent:'center',alignItems:'center', height:"100vh"}}>
         <form action="" onSubmit={handleSubmit}
-        style={{display:'flex', flexDirection:'column', gap:'5px', boxShadow:'0 0 5px rgba(0, 0, 0, 0.7)', padding:'60px', backgroundColor:'white'}}
-        >
+        className='logReg__form'>
         <div className='elem_form'>
         <label htmlFor="name">name: </label>
-        <input 
+        <input className='logReg__input' 
         type="text" 
         name="" 
         id="name" 
-        style={{border:'none', borderBottom:'1px black solid', width:'100%', outline:'none'}}
+        required
         value={value.name}onChange={(e)=>{setValue((prevValue)=>{return{...prevValue, name:e.target.value}})}}
         
         />
@@ -55,16 +56,16 @@ export default function LoginRegistration() {
         </div>
         <div className='elem_form'>
         <label htmlFor="uniqueID">uniqueID: </label>
-        <input 
+        <input className='logReg__input' 
         type="text" 
         name="" 
         id="uniqueID" 
-         style={{border:'none', borderBottom:'1px black solid', width:'100%', outline:'none'}}
+        required
         value={value.id} onChange={(e)=>{setValue((prevValue)=>{return{...prevValue, id:e.target.value}})}}/>
 
         </div>
-        <button style={{fontSize:'1.25em', color:'white', backgroundColor:'blue', borderRadius:'25px', border:'1px white solid', padding:'3%'}} type="submit">{isRegistered?'Login':'Register'}</button>
-        <p style={{textAlign:'center', color:'blue', cursor:'pointer'}} onClick={handleClick}>{isRegistered?'Go back to Register':'Already Have a Account?'}</p>
+        <button className="logReg__button" type="submit">{isRegistered?'Login':'Register'}</button>
+        <p className="logReg__question" onClick={handleClick}>{isRegistered?'Go back to Register':'Already Have a Account?'}</p>
         <p style={{color:'red'}}>{message}</p>
         </form>
        

@@ -33,11 +33,11 @@ function App() {
   {
      (token && user.id)?
       <div style={{height:'100vh',width:'100vw', display:'flex',
-      justifyContent:'space-around', padding:'1%'}}>
-     <Sidebar />
+      justifyContent:'space-around', padding:'1%', position:'relative'}}>
+     <Sidebar handleClick={handleClick}/>
      <Conversations token={token}/>
      {toContacts && <Contacts setToContacts={setToContacts} token={token}/>}
-     <button style={{position: 'absolute', bottom:'1.5%', right:'75%'}} onClick={handleClick}>go to Contacts</button>
+     
       </div>:
      <LoginRegistration />
     }
