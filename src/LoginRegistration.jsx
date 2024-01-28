@@ -55,7 +55,7 @@ export default function LoginRegistration() {
 
         </div>
         <div className='elem_form'>
-        <label htmlFor="uniqueID">uniqueID: </label>
+        <label htmlFor="uniqueID">uniqueID(num): </label>
         <input className='logReg__input' 
         type="text" 
         name="" 
